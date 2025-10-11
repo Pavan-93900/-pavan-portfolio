@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PASUPULA PAVANKUMAR - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --main-bg: linear-gradient(135deg, #313dc8, #ffc371, #48c6ef, #6f99ff, #f77062 100%);
+      --header-bg: rgba(255,255,255,0.83);
+      --accent1: #313dc8;
+      --accent2: #f77062;
+      --accent3: #48c6ef;
+      --accent4: #ffc371;
+      --footer-bg: linear-gradient(90deg, #313dc8, #f77062 80%);
+      --main-text: #222;
+      --heading: #f77062;
+      --nav-bg: #fff2;
+      --link: #313dc8;
+      --section-bg: rgba(255,255,255,0.94);
+    }
+    body.dark-mode {
+      --main-bg: linear-gradient(135deg, #15162d, #25235a, #22244a, #261a32);
+      --header-bg: rgba(34,34,34,0.85);
+      --accent1: #ffc371;
+      --accent2: #48c6ef;
+      --accent3: #f77062;
+      --accent4: #313dc8;
+      --footer-bg: linear-gradient(90deg, #261a32, #22244a 80%);
+      --main-text: #f1f1f1;
+      --heading: #48c6ef;
+      --nav-bg: #3333;
+      --link: #ffc371;
+      --section-bg: rgba(36,36,36,0.98);
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      min-height: 100vh;
+      background: var(--main-bg);
+      color: var(--main-text);
+      box-sizing: border-box;
+      transition: background 0.7s, color 0.7s;
+      scroll-behavior: smooth;
+    }
+    header {
+      padding: 40px 0 20px 0;
+      text-align: center;
+      background: var(--header-bg);
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 8px 32px #6f99ff44;
+      transition: background 0.7s;
+      animation: slideDown 1s;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-60px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    header img {
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:14px;
+      box-shadow:0 0 18px #313dc888;
+      animation: fadeIn 2.2s;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      color: var(--accent1);
+      letter-spacing: 2px;
+      animation: fadeIn 1.7s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    header p {
+      font-size: 1.1rem;
+      color: var(--main-text);
+      margin: 12px 0 0 0;
+      animation: fadeIn 2s;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0 10px 0;
+      animation: fadeIn 2.5s;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--accent3);
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: var(--nav-bg);
+      transition: background .2s, color .3s;
+    }
+    nav a:hover {
+      background: var(--accent4);
+      color: var(--main-text);
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      padding: 0 20px 40px 20px;
+      background: var(--section-bg);
+      border-radius: 32px;
+      box-shadow: 0 4px 28px #f7706244;
+      transition: background 0.7s;
+      animation: fadeIn 2.5s;
+    }
+    section {
+      margin: 50px 0 0 0;
+      animation: fadeUp 1s;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .8s, transform 1.1s;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    section h2 {
+      font-size: 2rem;
+      color: var(--heading);
+      margin-bottom: 12px;
+      transition: color 0.7s;
+    }
+    ul {
+      padding-left: 18px;
+    }
+    .colored-link {
+      color: var(--link);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .project-title {
+      color: var(--accent3);
+      font-weight: bold;
+    }
+    .cert-item {
+      margin-bottom: 8px;
+      color: var(--accent1);
+    }
+    .skills, .languages {
+      margin-bottom: 20px;
+    }
+    .skills span, .languages span {
+      display: inline-block;
+      background: var(--accent4);
+      margin: 4px 8px 4px 0;
+      padding: 6px 18px;
+      border-radius: 14px;
+      color: var(--main-text);
+      font-weight: 500;
+      transition: background 0.7s, color 0.7s;
+      box-shadow: 0 2px 10px var(--accent2);
+      animation: fadeIn 1.7s;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 19px;
+      right: 30px;
+      z-index: 20;
+      background: var(--accent4);
+      color: var(--main-text);
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      box-shadow: 0 2px 18px var(--accent1);
+      transition: background 0.7s, color 0.7s;
+    }
+    .dark-toggle:hover {
+      background: var(--accent3);
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 28px 0 12px 0;
+      color: #fff;
+      background: var(--footer-bg);
+      border-radius: 40px 40px 0 0;
+      margin-bottom: 0;
+      font-size: 1rem;
+      margin-top: 40px;
+      transition: background 0.7s, color 0.7s;
+    }
+  </style>
+</head>
+<body>
+  <button class="dark-toggle" id="toggle-mode" title="Switch theme">🌙</button>
+  <header>
+    <img src="PH.jpg" id="profile-photo" alt="Profile Photo">
+    <h1>PASUPULA PAVANKUMAR</h1>
+    <p>Computer Science Undergraduate | AI & ML Specialist | Full-Stack Web Developer</p>
+    <nav>
+      <a href="#objective">Objective</a>
+      <a href="#education">Education</a>
+      <a href="#internships">Internships</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#languages">Languages</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section id="objective">
+      <h2>Objective</h2>
+      <p>
+        Motivated Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning, with proficiency in Python, machine learning frameworks, and full-stack web development. Proven ability to engineer scalable solutions through projects such as an AI-powered document management system and an IPL score prediction model.
+      </p>
+    </section>
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>Bachelor of Technology in Computer Science and Engineering (AIML), CMR University (<strong>CGPA: 8.7</strong>) <em>2022-Present</em></li>
+        <li>Pre-University: Narayana Junior College (<strong>84%</strong>) <em>2020-2022</em></li>
+        <li>SSC: Jeevan Jyothi High School (<strong>95%</strong>) <em>2020</em></li>
+      </ul>
+    </section>
+    <section id="internships">
+      <h2>Internships</h2>
+      <ul>
+        <li class="project-title">AI Job Simulation (July 2024):</li>
+        <ul>
+          <li>Completed real-world ML tasks: data cleaning, model development, and deployment.</li>
+          <li>Collaborated on case scenarios involving exploratory data analysis, model evaluation.</li>
+        </ul>
+        <li class="project-title">AIML Intern (Sep 2023):</li>
+        <ul>
+          <li>Applied core AIML techniques for real-world data cleaning, model training, performance evaluation.</li>
+          <li>Built and evaluated classification models (85% accuracy) using financial data.</li>
+        </ul>
+      </ul>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <span class="project-title">Smart AI Assistant Document Management System (Apr 2025):</span>
+          <ul>
+            <li>Enhanced NLP platform to organize, retrieve, and recommend documents.</li>
+            <li>Reduced document retrieval time by 40% using intelligent classification and keyword tagging.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="project-title">IPL Score Prediction (Jun 2024):</span>
+          <ul>
+            <li>Regression-based model to estimate IPL first-innings scores.</li>
+            <li>Achieved 85% accuracy with optimized model parameters and historical data.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>Python</span><span>C</span><span>HTML</span><span>CSS</span><span>SQL</span>
+      </div>
+      <div class="skills">
+        <span>Leadership</span><span>Time Management</span><span>Communication</span><span>Active Listening</span>
+      </div>
+    </section>
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <div>
+        <div class="cert-item">Python Programming Certification - GEEKS FOR GEEKS (Apr 2025)</div>
+        <div class="cert-item">Introduction To Internet Of Things - NPTEL (Apr 2024)</div>
+        <div class="cert-item">Computer Vision With Python - UDEMY (Mar 2024)</div>
+      </div>
+    </section>
+    <section id="languages">
+      <h2>Languages</h2>
+      <div class="languages">
+        <span>Telugu (Native)</span>
+        <span>English (Intermediate)</span>
+        <span>Hindi (Beginner)</span>
+        <span>Kannada (Beginner)</span>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li>Email: <span class="colored-link">pasupula.pavancmr.edu.in</span></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/pasupulapavankumar" class="colored-link" target="_blank">linkedin.com/in/pasupulapavankumar</a></li>
+        <li>GitHub: <a href="https://github.com/Pavan-93900" class="colored-link" target="_blank">github.com/Pavan-93900</a></li>
+        <li>Phone: <span class="colored-link">91 9390025265</span></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 PASUPULA PAVANKUMAR | Designed with AI & Love | Portfolio powered by HTML, CSS, and JS
+  </footer>
+  <script>
+    // Dark mode toggle logic
+    const toggle = document.getElementById('toggle-mode');
+    toggle.onclick = () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    };
+
+    // Animate sections on scroll
+    function revealSections() {
+      let allSections = document.querySelectorAll('section');
+      let windowBottom = window.scrollY + window.innerHeight;
+      allSections.forEach(sec => {
+        let secTop = sec.offsetTop - 80;
+        if (windowBottom > secTop) { sec.classList.add('visible'); }
+      });
+    }
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('DOMContentLoaded', revealSections);
+  </script>
+</body>
+</html>
